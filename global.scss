@@ -1,28 +1,64 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400;500;600;700;800;900&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400;500;600;700;800;900&display=swap");
+@import './breakpoints';
 
-$font: 'Inter', sans-serif;
+$font: "Inter", sans-serif;
 
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-html[theme=dark]{
-    --toogle-color: linear-gradient(to right, hsl(210, 78%, 56%), hsl(146, 68%, 55%));
-    --bg-color: hsl(230, 17%, 14%);
-    --text1-color: hsl(0, 0%, 100%);
-    --text2-color: hsl(228, 34%, 66%);
-    --header-color: hsl(232, 19%, 15%);
+html[theme="light"] {
+  --toogle-color: hsl(230, 22%, 74%);
+  --toogle-state-color: linear-gradient(
+    to right,
+    hsl(210, 78%, 56%),
+    hsl(146, 68%, 55%)
+  );
+  --bg-color: hsl(0, 0%, 100%);
+  --header-color: hsl(225, 100%, 98%);
+  --bgcard-color: hsl(227, 47%, 96%);
+  --bgcard-state-color: hsl(232, 33%, 91%);
+  --text1-color: hsl(230, 17%, 14%);
+  --text2-color: hsl(228, 12%, 44%);
 }
 
-body{
-    font-family: $font;
-    height: 100vh;
-    background-color: var(--bg-color);
+html[theme="dark"] {
+  --toogle-color: linear-gradient(
+    to right,
+    hsl(210, 78%, 56%),
+    hsl(146, 68%, 55%)
+  );
+  --toogle-state-color: hsl(230, 22%, 74%);
+  --bg-color: hsl(230, 17%, 14%);
+  --header-color: hsl(232, 19%, 15%);
+  --bgcard-color: hsl(228, 28%, 20%);
+  --bgcard-state-color: hsl(228, 26%, 27%);
+  --text1-color: hsl(0, 0%, 100%);
+  --text2-color: hsl(228, 34%, 66%);
 }
 
-.Disable__None{
+body {
+  font-family: $font;
+  height: 100vh;
+  transition: background-color 0.3s;
+  background-color: var(--bg-color);
+}
+
+.separator{
+  transition: border-top 0.3s;
+  border-top: 1px solid var(--text2-color);
+
+  @include media(desktop){
     display: none;
+  }
 }
 
+.up{
+  color: #1db489;
+}
+
+.down{
+  color: #dc414c;
+}

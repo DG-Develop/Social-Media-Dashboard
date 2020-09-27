@@ -1,8 +1,8 @@
-import React from "react";
+import React, { useRef } from "react";
 
 import "./styles/Header.scss";
 
-const Header = () => (
+const Header = ({ theme }) => (
   <header className="Header">
     <div className="Header__Container">
       <div className="Header__Title">
@@ -12,9 +12,11 @@ const Header = () => (
         </strong>
       </div>
 
+      <hr className="separator" />
+
       <div className="Header__Mode">
         <strong className="Header__Mode--strong">Dark Mode</strong>
-        <input className="Disable__None" type="checkbox" id="checkbox"/>
+        <input type="checkbox" id="checkbox" onChange={theme} />
         <label className="Header__Mode--toogle" htmlFor="checkbox"></label>
       </div>
     </div>

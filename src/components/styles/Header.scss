@@ -1,48 +1,77 @@
+@import '../../../breakpoints';
+
 .Header{
-    outline: 1px solid gold;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
+    padding-bottom: 70px;
+    border-radius: 0 0 20px 20px;
+    transition: background-color 0.3s;
     background-color: var(--header-color);
-    padding-bottom: 130px;
+
+    @include media(desktop){
+        display: flex;
+        padding-bottom: 130px;
+        justify-content: space-between;
+    }
 }
 
 .Header__Container{
-    outline: 1px solid palegoldenrod;
-    display: inherit;  /* flex-box */
-    justify-content: inherit; /* space-between */
+    display: inherit;  /* block flex-box */
+    justify-content: inherit; /*none  space-between */
+    /* max-width mejorará la situación cuando la ventana del navegador sea pequeña. Esto es 
+    importante cuando estamos haciendo un sitio apra dispositivos móviles*/
+    max-width: 1160px; 
     width: 100%;
-    margin: 0 65px;
+    /* margin: auto lo que hace es centrar dependiendo del tamaño a nivel de bloque para 
+    centrar el elemento en su contenedor de manera horizontal y esto lo calculará dependiendo
+    del tamaño de la ventana (Viewport) */
+    margin: 0 auto;
     padding: 0 25px;
 }
 
 .Header__Title{
-    outline: 1px solid salmon;
-    padding: 35px 0 25px;
+    padding: 35px 0 25px; /* top rigth left bottom */
 }
 
 .Header__Title--h1{
-    font-size: 27.3px;
-    margin-bottom: 3px;
+    /* por defecto el h1 tiene 2em en opera en donde el 1em = 14px */
+    font-size: 1.72em; /*  1.72 * 14* = 24.08 */
+    margin-bottom: 5px;
+    transition: color 0.3s;
     color: var(--text1-color);
+
+    @include media(desktop){
+        font-size: 1.95em;;
+    }
 }
 
+/* por defecto el strong agarra el tamaño root principal que es de 14px */
 .Header__Title--strong{
-    font-size: 14px;
+    transition: color 0.3s;
     color: var(--text2-color);
 }
 
 .Header__Mode{
-    outline: 1px solid cyan;
     padding: 15px 0;
     display: flex;
     align-items: center;
-    justify-content: flex-end;
+    justify-content: space-between;
+
+    @include media(desktop){
+        justify-content: flex-end;
+    }
 }
 
 .Header__Mode--strong{
-    font-size: 14px;
+    margin-right: 15px;
+    transition: color 0.3s;
     color: var(--text2-color);
+}
+
+input[type=checkbox] {
+    display: none;
+}
+
+input[type=checkbox]:checked + .Header__Mode--toogle::before {
+    transform: translateX(22px);
 }
 
 .Header__Mode--toogle{
@@ -51,7 +80,7 @@
     border-radius: 25px;
     padding: 3px;
     background: var(--toogle-color);
-    cursor: pointer;
+
 
     &::before{
         display: block;
@@ -63,4 +92,16 @@
         transform: translateX(0);
         background-color: var(--bg-color);
     }
+
+    &:active{
+        background: var(--toogle-state-color);
+    }
+
+    @include media(desktop){
+        &:hover{
+            cursor: pointer;
+            background: var(--toogle-state-color);
+        }
+    }
 }
+
