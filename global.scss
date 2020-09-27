@@ -1,0 +1,28 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400;500;600;700;800;900&display=swap');
+
+$font: 'Inter', sans-serif;
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html[theme=dark]{
+    --toogle-color: linear-gradient(to right, hsl(210, 78%, 56%), hsl(146, 68%, 55%));
+    --bg-color: hsl(230, 17%, 14%);
+    --text1-color: hsl(0, 0%, 100%);
+    --text2-color: hsl(228, 34%, 66%);
+    --header-color: hsl(232, 19%, 15%);
+}
+
+body{
+    font-family: $font;
+    height: 100vh;
+    background-color: var(--bg-color);
+}
+
+.Disable__None{
+    display: none;
+}
+

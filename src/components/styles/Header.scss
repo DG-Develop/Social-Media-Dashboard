@@ -1,0 +1,66 @@
+.Header{
+    outline: 1px solid gold;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: var(--header-color);
+    padding-bottom: 130px;
+}
+
+.Header__Container{
+    outline: 1px solid palegoldenrod;
+    display: inherit;  /* flex-box */
+    justify-content: inherit; /* space-between */
+    width: 100%;
+    margin: 0 65px;
+    padding: 0 25px;
+}
+
+.Header__Title{
+    outline: 1px solid salmon;
+    padding: 35px 0 25px;
+}
+
+.Header__Title--h1{
+    font-size: 27.3px;
+    margin-bottom: 3px;
+    color: var(--text1-color);
+}
+
+.Header__Title--strong{
+    font-size: 14px;
+    color: var(--text2-color);
+}
+
+.Header__Mode{
+    outline: 1px solid cyan;
+    padding: 15px 0;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+}
+
+.Header__Mode--strong{
+    font-size: 14px;
+    color: var(--text2-color);
+}
+
+.Header__Mode--toogle{
+    width: 47px;
+    height: 24px;
+    border-radius: 25px;
+    padding: 3px;
+    background: var(--toogle-color);
+    cursor: pointer;
+
+    &::before{
+        display: block;
+        content: "";
+        width: 18px;
+        height: 18px;
+        border-radius: 50%;
+        transition: transform 0.3s, background-color 0.3s;
+        transform: translateX(0);
+        background-color: var(--bg-color);
+    }
+}
