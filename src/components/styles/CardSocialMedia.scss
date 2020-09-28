@@ -34,11 +34,11 @@
     }
 
     &:nth-child(3)::before{
-        background-image: linear-gradient(to right, #fdc468, #df4996);
+        background-color: #c4032a;
     }
 
     &:nth-child(4)::before{
-        background-color: #c4032a;
+        background-image: linear-gradient(to right, #fdc468, #df4996);
     }
 }
 

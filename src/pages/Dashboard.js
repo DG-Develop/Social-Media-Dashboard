@@ -12,127 +12,128 @@ import logo_down from '../assets/static/icon-down.svg'
 import "./styles/Dashboard.scss";
 import CardToday from "../components/CardToday";
 
+import { db } from '../firebase'
+
 class Dashboard extends Component {
 
+  state = {
+    data: [],
+    overview: []
+  }
+
+  readProfiles = async () => {
+    try {
+      const data = []
+      const users = await db.collection('profiles')
+        .orderBy('stats')
+        .get()
+
+      users.forEach(doc => {
+        data.push(doc.data())
+      })
+
+      this.setState({ data: data })
+    } catch (error) {
+      console.error(error)
+    }
+  }
+
+  readOverviews = async () => {
+    try {
+      const overview = []
+      const docs = await db.collection('overview')
+        .get()
+
+      docs.forEach(doc => {
+        overview.push(doc.data())
+      })
+
+      this.setState({ overview: overview })
+    } catch (error) {
+      console.error(error)
+    }
+  }
+
+  componentDidMount() {
+    this.readProfiles()
+    this.readOverviews()
+  }
+
   handleTheme = (e) => {
-    if(e.target.checked){
+    if (e.target.checked) {
       document.documentElement.setAttribute('theme', 'light')
-    }else{
+    } else {
       document.documentElement.setAttribute('theme', 'dark')
+    }
+  }
+
+  putLogo = (social_media) => {
+    switch (social_media) {
+      case "facebook":
+        return logo_face
+
+      case "twitter":
+        return logo_twitter
+
+      case "instagram":
+        return logo_instagram
+
+      case "YouTube":
+        return logo_youtube
     }
   }
 
   render() {
     return (
       <React.Fragment>
-        <Header theme={this.handleTheme}/>
+        <Header theme={this.handleTheme} />
 
         <div className="container">
           <div className="main">
             <div className="List__SocialMedia">
-              <CardSocialMedia 
-              username="@DGDevelop" 
-              score="1987"
-              score_type="Followers"
-              logo={logo_face}
-              color_stat="up"
-              amount="12"
-              arrow={logo_up}
-              />
-              <CardSocialMedia 
-              username="@DGDevelop" 
-              score="1044"
-              score_type="Followers"
-              logo={logo_twitter}
-              color_stat="up"
-              amount="99"
-              arrow={logo_up}
-              />
-              <CardSocialMedia 
-              username="@dgdband182" 
-              score="11k"
-              score_type="Followers"
-              logo={logo_instagram}
-              color_stat="up"
-              amount="1099"
-              arrow={logo_up}
-              />
-              <CardSocialMedia 
-              username="David Gómez" 
-              score="8239"
-              score_type="Subscribers"
-              logo={logo_youtube}
-              color_stat="down"
-              amount="144"
-              arrow={logo_down}
-              />
+              {this.state.data.map(({
+                id,
+                username,
+                score,
+                score_type,
+                social_media,
+                increase,
+                stats
+              }) => (
+                  <CardSocialMedia
+                    key={id}
+                    username={username}
+                    score={score}
+                    score_type={score_type}
+                    logo={this.putLogo(social_media)}
+                    color_stat={increase}
+                    amount={stats}
+                    arrow={(increase === "up") ? logo_up : logo_down}
+                  />
+                )
+              )}
             </div>
             <section className="Overview">
               <h2 className="Overview__Title">Overview - Today</h2>
-              <CardToday 
-                title="Page Views"
-                logo={logo_face}
-                views="87"
-                arrow={logo_up}
-                color_stat="up"
-                percentage="3%"
-              />
-              <CardToday 
-                title="Likes"
-                logo={logo_face}
-                views="52"
-                arrow={logo_down}
-                color_stat="down"
-                percentage="2%"
-              />
-              <CardToday 
-                title="Likes"
-                logo={logo_instagram}
-                views="5462"
-                arrow={logo_up}
-                color_stat="up"
-                percentage="2257%"
-              />
-              <CardToday 
-                title="Profile Views"
-                logo={logo_instagram}
-                views="52k"
-                arrow={logo_up}
-                color_stat="up"
-                percentage="1375%"
-              />
-              <CardToday 
-                title="Retweets"
-                logo={logo_twitter}
-                views="117"
-                arrow={logo_up}
-                color_stat="up"
-                percentage="303%"
-              />
-              <CardToday 
-                title="Likes"
-                logo={logo_twitter}
-                views="507"
-                arrow={logo_up}
-                color_stat="up"
-                percentage="553%"
-              />
-              <CardToday 
-                title="Likes"
-                logo={logo_youtube}
-                views="107"
-                arrow={logo_down}
-                color_stat="down"
-                percentage="19%"
-              />
-              <CardToday 
-                title="Total Views"
-                logo={logo_youtube}
-                views="1407"
-                arrow={logo_down}
-                color_stat="down"
-                percentage="12%"
-              />
+              {this.state.overview.map(({
+                id,
+                amount,
+                social_media,
+                increase,
+                percentage,
+                title
+              }) => (
+                  <CardToday
+                    key={id}
+                    title={title}
+                    logo={this.putLogo(social_media)}
+                    views={amount}
+                    arrow={(increase === "up") ? logo_up : logo_down}
+                    color_stat={increase}
+                    percentage={percentage}
+                  />
+                )
+              )}
             </section>
           </div>
         </div>
