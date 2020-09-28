@@ -1,3 +1,5 @@
+@import '../../../breakpoints';
+
 .Today{
     display: grid;
     /* grid-template: none | <grid-template-rows> / <grid-template-columns>; */
@@ -11,6 +13,13 @@
     user-select: none;
     transition: background-color 0.3s;
     background-color: var(--bgcard-color);
+
+    @include media(desktop){
+        &:hover{
+            cursor: pointer;
+            background-color: var(--bgcard-state-color);
+        }
+    }
 }
 
 .Today__title{

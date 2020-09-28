@@ -1,3 +1,4 @@
+@import '../../../breakpoints';
 
 .Social__Card{
     /* indica que quiero todo el ancho pero que que su tamañó máximo sea de 325px */
@@ -39,6 +40,13 @@
 
     &:nth-child(4)::before{
         background-image: linear-gradient(to right, #fdc468, #df4996);
+    }
+
+    @include media(desktop){
+        &:hover{
+            cursor: pointer;
+            background-color: var(--bgcard-state-color);
+        }
     }
 }
 
