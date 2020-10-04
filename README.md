@@ -1,22 +1,22 @@
 <!-- Please update value in the {}  -->
 
-<h1 align="center">404 Not Found Challenge</h1>
+<h1 align="center">Social Media Dashboard</h1>
 
 <div align="center">
-   Solution for a challenge from  <a href="http://devchallenges.io" target="_blank">Devchallenges.io</a>.
+   Solution for a challenge from  <a href="https://www.frontendmentor.io/solutions/social-media-dashboard-gXxCRA95_" target="_blank">frontendmentor.io</a>.
 </div>
 
 <div align="center">
   <h3>
-    <a href="https://dg-develop.github.io/404-not-found-challenge/">
+    <a href="https://dg-develop.github.io/Social-Media-Dashboard/">
       Demo
     </a>
     <span> | </span>
-    <a href="https://devchallenges.io/solutions/xPCXscVPuEVa6EpgPbjr">
+    <a href="https://www.frontendmentor.io/solutions/social-media-dashboard-gXxCRA95_">
       Solution
     </a>
     <span> | </span>
-    <a href="https://devchallenges.io/challenges/wBunSb7FPrIepJZAg0sY">
+    <a href="https://www.frontendmentor.io/solutions/social-media-dashboard-gXxCRA95_">
       Challenge
     </a>
   </h3>
@@ -36,13 +36,13 @@
 
 ## Overview
 
-![screenshot](https://i.ibb.co/yyPTbz5/2020-09-19-21h54-43.png)
+![screenshot](https://i.ibb.co/WFMny1V/2020-10-03-21h32-50.png)
 
-My demo can be seen on the following page: https://dg-develop.github.io/404-not-found-challenge/
+My demo can be seen on the following page: https://dg-develop.github.io/Social-Media-Dashboard/
 
-Now, in my experience it was an interesting challenge since I made the layout of the page with flex-box.
+As I developed this challenge, I learned to differentiate the different ways to implement such a design. In my case, in most of them I implement Grid-Layout and a small Flex-Box.
 
-I learned about importing fonts and about responsive page design, and to my knowledge, knew about React, Webpack, EsLint, Babel, and NPM.
+In this challenge I learned about how use preprocessing with SASS and how to implement dark mode in one webpage, and to my knowledge, knew about React, Webpack, EsLint, Babel, and NPM.
 
 ### Built With
 
@@ -58,8 +58,7 @@ I learned about importing fonts and about responsive page design, and to my know
 
 <!-- List the features of your application or follow the template. Don't share the figma file here :) -->
 
-This application/site was created as a submission to a [DevChallenges](https://devchallenges.io/challenges) challenge. The [challenge](https://devchallenges.io/challenges/wBunSb7FPrIepJZAg0sY) was to build an application to complete the given user stories.
-
+This application/site was created as a submission to a [FrontendMentor](https://www.frontendmentor.io/dashboard) challenge. The [challenge](https://www.frontendmentor.io/solutions/social-media-dashboard-gXxCRA95_) was to build an application to complete the given user stories.
 
 ## Acknowledgements
 
